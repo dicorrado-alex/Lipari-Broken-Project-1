@@ -74,8 +74,10 @@ public class BankConsole {
      */
     private int readInt() {
         try {
-            return scanner.nextInt();
-        } catch (InputMismatchException e) {
+            String input = scanner.nextLine().trim();
+            return Integer.parseInt(input);
+
+        } catch (NumberFormatException e) {
             System.out.println("  ⚠ Input non valido! Inserisci un numero intero.");
             return -1;
         }

@@ -26,7 +26,7 @@ public final class SavingsAccount extends Account {
                 .setScale(2, RoundingMode.HALF_UP);
 
         if (interest.compareTo(BigDecimal.ZERO) > 0) {
-            deposit(BigDecimal.ZERO);
+            deposit(interest);
         }
     }
 

@@ -178,17 +178,18 @@ public class BankConsole {
     }
 
     private String getAccountTypeInfo(Object accountObj) {
-        if (accountObj instanceof Account a) {
-            return String.format("Tipo: [GENERICO]   IBAN: %s — saldo: %.2f€",
-                    a.getIban(), a.getBalance());
 
-        } else if (accountObj instanceof SavingsAccount sa) {
+        if (accountObj instanceof SavingsAccount sa) {
             return String.format("Tipo: [RISPARMIO]  IBAN: %s — tasso: %.2f%% — saldo: %.2f€",
                     sa.getIban(), sa.getInterestRate(), sa.getBalance());
 
         } else if (accountObj instanceof CheckingAccount ca) {
             return String.format("Tipo: [CORRENTE]   IBAN: %s — scoperto: %.2f€ — saldo: %.2f€",
                     ca.getIban(), ca.getOverdraftLimit(), ca.getBalance());
+
+        } else if (accountObj instanceof Account a) {
+            return String.format("Tipo: [GENERICO]   IBAN: %s — saldo: %.2f€",
+                    a.getIban(), a.getBalance());
         }
         return "Tipo: [SCONOSCIUTO]";
     }
